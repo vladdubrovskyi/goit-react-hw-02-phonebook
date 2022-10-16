@@ -1,28 +1,34 @@
 import React, { Component } from "react"
 import { Section } from "components/Section/Section"
-import {ContactForm} from "components/ContactForm/ContactForm"
+import { ContactForm } from "components/ContactForm/ContactForm"
+import {ContactList} from "components/ContactList/ContactList"
 
 export class App extends Component {
   state = {
   contacts: [],
-  name: ''
+  name: '',
+  number: ""
   }
 
   formSubmitHandler = data => {
-    this.state.contacts.push(data)
-    console.log(this.state.contacts)
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, data]
+    }))
+
+
+    
 }
 
 
   render() {
-     const {contacts, name} = this.state
+     const {contacts, name, number} = this.state
   return (
     <>
       <Section title="Phonebook">
         <ContactForm onSubmit={this.formSubmitHandler } />
       </Section>
-       <Section title = "Contacts">
-
+      <Section title="Contacts">
+        <ContactList contacts={ contacts} />
       </Section>
     </>
      )
