@@ -6,8 +6,8 @@ import {ContactList} from "components/ContactList/ContactList"
 export class App extends Component {
   state = {
   contacts: [],
-  name: '',
-  number: ""
+  // name: '',
+  // number: ""
   }
 
   formSubmitHandler = data => {
@@ -21,7 +21,7 @@ export class App extends Component {
 
 
   render() {
-     const {contacts, name, number} = this.state
+     const {contacts} = this.state
   return (
     <>
       <Section title="Phonebook">
