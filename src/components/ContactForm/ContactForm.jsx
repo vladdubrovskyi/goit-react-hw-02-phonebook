@@ -3,7 +3,9 @@ import { nanoid } from 'nanoid'
 import {StyledForm} from "components/ContactForm/ContactForm.styled"
 import { StyledLabel } from "components/CommonStyled/Label.styled"
 import {StyledInput} from "components/CommonStyled/Input.styled"
-import {StyledBtn} from "components/CommonStyled/Btn.styled"
+import { StyledBtn } from "components/CommonStyled/Btn.styled"
+import PropTypes from 'prop-types';
+
 export class ContactForm extends Component {
     state = {
         id: "",
@@ -70,4 +72,9 @@ export class ContactForm extends Component {
         </StyledForm>
         )
     }
+}
+
+ContactForm.propTypes = {
+    
+  onSubmit: PropTypes.func
 }
