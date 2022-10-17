@@ -1,13 +1,16 @@
-export const ContactList = ({ contacts, removeContact  }) => {
-    return <ol>
+import {StyledList} from "components/CommonStyled/List.styled"
+import {StyledListItem} from "components/CommonStyled/ListItem.styled"
+import {StyledRemoveBtn} from "components/ContactList/BtnRemove.styled"
+export const ContactList = ({ contacts, removeContact }) => {
+    return <StyledList>
         {contacts.map(contact =>
         {
         return (
-        <li key={contact.id}>
+        <StyledListItem key={contact.id}>
                 {contact.name}: {contact.number}
-                <button type="button" onClick={() => removeContact(contact.id)}>Remove</button>
-            </li>)
+                <StyledRemoveBtn type="button" onClick={() => removeContact(contact.id)}>Remove</StyledRemoveBtn>
+            </StyledListItem>)
         })}
-    </ol>
+    </StyledList>
     
 }

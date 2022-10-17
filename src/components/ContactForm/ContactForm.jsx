@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import { nanoid } from 'nanoid'
-
+import {StyledForm} from "components/ContactForm/ContactForm.styled"
+import { StyledLabel } from "components/CommonStyled/Label.styled"
+import {StyledInput} from "components/CommonStyled/Input.styled"
+import {StyledBtn} from "components/CommonStyled/Btn.styled"
 export class ContactForm extends Component {
     state = {
         id: "",
@@ -39,9 +42,9 @@ export class ContactForm extends Component {
         const { name, number } = this.state
         return (
             
-            <form onSubmit={this.handleSubmit}>
-          <label htmlFor={this.nameInputId}>Name</label>
-          <input
+            <StyledForm onSubmit={this.handleSubmit}>
+          <StyledLabel htmlFor={this.nameInputId}>Name</StyledLabel>
+          <StyledInput
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -51,8 +54,8 @@ export class ContactForm extends Component {
           onChange={this.handleInputChange}
           id={this.nameInputId}
             />
-            <label htmlFor={this.numberInputId}>Number</label>
-            <input
+            <StyledLabel htmlFor={this.numberInputId}>Number</StyledLabel>
+            <StyledInput
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -63,8 +66,8 @@ export class ContactForm extends Component {
           id={this.numberInputId}
               
 />
-          <button type="submit">Add Contact</button>
-        </form>
+          <StyledBtn type="submit">Add Contact</StyledBtn>
+        </StyledForm>
         )
     }
 }
